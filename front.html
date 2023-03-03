@@ -1,0 +1,57 @@
+<html>
+
+    <link rel ="stylesheet" href="Style.css">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    </head>
+
+
+
+    <body class="mainbg">
+        <main>
+            <nav>
+                <button type='button' class="contained" id="navbar" onclick="menu_bar()">
+                    <div class="open-arrow"> </div>
+                    <div class="open-arrow"> </div>
+                    <div class="open-arrow"> </div>
+                </button>
+                <div id='#Mysidenav' class="sidenav">
+                    <a href="#">About Me&emsp;</a>
+                    <a href="#">Contact Me</a>
+                </div>
+                <sectiond id = 'frontpage'>
+                    <divtitle>
+                        <h1 class="t">Better Sleep</h1>
+                    </divtitle>
+                    <divtitle class="container">
+                        <a href ='secondpage.html'>
+                        <button class="getstarted">Get Started!</button>
+                    </a>
+                    </divtitle>
+            </center>
+            </nav>
+        </main>
+    </body>
+
+    <script>
+        function menu_bar(){
+            if (document.querySelector('#navbar').classList.contains('contained')){
+                document.querySelector('#navbar').classList.replace('contained', 'opened-nav')
+                document.getElementById('#Mysidenav').style.marginLeft = '0px'
+                document.getElementById('#Mysidenav').style.width = '250px'
+                document.getElementById('#Mysidenav').style.height = '250px'
+            }
+            else if(document.querySelector('#navbar').classList.contains('opened-nav')){
+                document.querySelector('#navbar').classList.replace('opened-nav', 'reclose')
+                document.getElementById('#Mysidenav').style.marginLeft = '-250px'
+            }
+            else if(document.querySelector('#navbar').classList.contains('reclose')){
+                document.querySelector('#navbar').classList.replace('reclose', 'contained')
+            }
+        }
+    </script>
+
+</html>
+
+

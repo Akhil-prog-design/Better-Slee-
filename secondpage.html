@@ -1,0 +1,57 @@
+<html>
+
+    <link rel ="stylesheet" href="Style.css">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    </head>
+
+
+
+    <body class="questionsbg">
+        <main>
+            <nav>
+                <sectiond id = 'secondpage'>
+                    <divtitle>
+                    <center class="q">
+                        <h1>What Time do you sleep?</h1>
+                    </center>
+                    <center>    
+                        <form class="answeringbox">
+                            <input type="text" id ='sleep' placeholder="i.e 2 am" required></br>
+                            <button type="submit" class="btn" onclick="submit1()">submit</button>
+                        </form>
+                        <a href="front.html" class="notdec">
+                            <button type="submit" class="bbtn"><<</button>
+                            </a>
+                        <a href="third.html">
+                        <button class="fbtn" id="next">>></button>
+                        </a>
+                    </center>
+                    </divtitle>
+            </nav>
+        </main>
+    </body>
+
+    <script>
+
+        const $input = document.querySelector('#sleep');
+        const times_allowed = /[0-9 am pm]/;
+
+        $input.addEventListener('keypress', event =>{
+            if(!times_allowed.test(event.key)){
+                event.preventDefault();
+            }
+        });
+
+        function submit1(){
+
+            var sleep_time = document.getElementById('sleep').value;
+            localStorage.setItem('Sleep Time', sleep_time);
+
+        }
+
+
+    </script>
+
+</html>

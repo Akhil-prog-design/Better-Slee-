@@ -1,0 +1,54 @@
+<html>
+
+    <link rel ="stylesheet" href="Style.css">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    </head>
+
+
+
+    <body class="questionsbg">
+        <main>
+            <nav>
+                <sectiond id = 'secondpage'>
+                    <divtitle>
+                    <center class="q">
+                        <h1>What Time do you wake up?</h1>
+                    </center>
+                    <center>    
+                        <form class ='answeringbox'>
+                            <input type="text" id ='timewakeup' placeholder="i.e 1 pm" required></br>
+                            <button type="submit" class="btn" onclick="submit2()">submit</button>
+                        </form>
+                    <a href="front.html" class="notdec">
+                        <button type="submit" class="bbtn"><<</button>
+                        </a>
+                    <a href="fourth.html" class="notdec">
+                    <button class="fbtn">>></button>
+                    </a>
+
+                    </divtitle>
+            </nav>
+        </main>
+    </body>
+
+    <script>
+
+        const $input = document.querySelector('#sleep');
+        const times_allowed = /[0-9 am pm]/;
+
+        $input.addEventListener('keypress', event =>{
+            if(!times_allowed.test(event.key)){
+                event.preventDefault();
+            }
+        });
+
+        function submit2(){
+
+            var wake_up = document.getElementById('timewakeup').value
+            localStorage.setItem('TimeWakeUp', wake_up)
+        }
+    </script>
+
+</html>

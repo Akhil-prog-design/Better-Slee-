@@ -1,0 +1,67 @@
+<html>
+
+    <link rel ="stylesheet" href="Style.css">
+
+    <body class="lastbg">
+        <main>
+            <center>
+                <div class="slide-right">
+                    <h2 class="t">Your Sleep Analysis</h2>
+                </div>
+                <div class = "slide-left">
+                    <p id="Sleep-Analysis" class="text"></p>
+                </div>
+                <div class="slide-right">
+                    <p id="Hand-Sleep" class="text">test</p>
+                </div>
+                <div class="viddisplay">
+                    <video width="400" controls="controls" preload="metadata">
+                        <source src="https://youtu.be/0yTB8Iq2HE0#t=0.5" type="video">
+                    </video>
+                </div>
+            </center>
+        </main>
+    </body>
+
+    <script>
+       var when_sleep = localStorage.getItem('Sleep Time')
+       var when_up = localStorage.getItem('TimeWakeUp')
+       var dom_hand = localStorage.getItem('Dominant Hand')
+       var this_old = localStorage.getItem('How Old')
+
+       var sleep_diff = Math.abs(parseInt(when_sleep) - parseInt(when_up))
+       var wake_later = (parseInt(when_sleep) - sleep_diff)
+       var sleep_earlier = (parseInt(when_up) + sleep_diff)
+
+       if(parseInt(this_old) <= 18 && sleep_diff <=9){
+           document.getElementById('Sleep-Analysis').innerHTML= `You are not getting a sufficent amount of sleep for your age, as you are sleeping for around ${sleep_diff} hours.
+           If you want to sleep at your current scheduled time aim to wake up around ${wake_later}, however if you want to wake up around your current scheduled time aim to sleep around ${sleep_earlier}.`
+       }
+       else if(parseInt(this_old) <= 18){
+           document.getElementById('Sleep-Analysis').innerHTML= `You are getting a sufficent amount of sleep for your age, as you are sleeping for around ${sleep_diff} hours.`
+       }
+
+       if(parseInt(this_old) > 18 && sleep_diff <=7){
+        document.getElementById('Sleep-Analysis').innerHTML= `You are not getting a sufficent amount of sleep for your age, as you are sleeping for around ${sleep_diff} hours.
+           If you want to sleep at your current scheduled time aim to wake up around ${wake_later}, however if you want to wake up around your current scheduled time aim to sleep around ${sleep_earlier}.`
+
+       }
+       else if(parseInt(this_old)>18){
+        document.getElementById('Sleep-Analysis').innerHTML= `You are getting a sufficent amount of sleep for your age, as you are sleeping for around ${sleep_diff} hours.`
+       }
+
+
+       if(dom_hand.toLowerCase() == 'right'){
+           document.getElementById('Hand-Sleep').innerHTML = `To acheive better quality sleep you should aim to sleep on your left side. 
+           Research suggest that the dominant hemisphere shows greater need for sleep than the non-dominant hemisphere since the dominant hemisphere is more active during waking`
+       }
+       else{
+           document.getElementById('Hand-Sleep')
+       }
+
+
+
+
+
+    </script>
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+    <link rel ="stylesheet" href="Style.css">
+
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    </head>
+
+
+
+    <body class="questionsbg">
+        <main>
+            <nav>
+                <sectiond id = 'secondpage'>
+                    <divtitle>
+                    <center class="q">
+                        <h1>How old are you?</h1>
+                    </center>
+                    <center>    
+                        <form class ='answeringbox'>
+                            <input type="number" id ='age' required></br>
+                            <button type="submit" class="btn" onclick="submit4()">submit</button>
+                        </form>
+                    <a href="fourth.html" class="notdec">
+                        <button type="submit" class="bbtn"><<</button>
+                        </a>
+                    <a href="sixth.html" class="notdec">
+                    <button class="fbtn">>></button>
+                    </a>
+
+                    </divtitle>
+            </nav>
+        </main>
+    </body>
+
+    <script>
+
+        const $input = document.getElementById('age').value
+        const not_allowed = /[-.]/
+
+        $input.addEventListener('keypress', event => {
+            if(!not_allowed.test(event.key)){
+                event.preventDefault()
+            }
+        })
+
+        function submit4(){
+
+            var old = document.getElementById('age').value
+            localStorage.setItem('How Old', old)
+
+        }
+
+    </script>
+
+</html>
